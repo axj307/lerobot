@@ -19,6 +19,36 @@ python lerobot/scripts/control_robot.py teleoperate
 python lerobot/scripts/control_robot.py teleoperate --robot-overrides '~cameras'
 ```
 
+- Record 2 episode:
+
+```bash
+python lerobot/scripts/control_robot.py record \
+    --single-task "Test Sim" \
+        --robot-path "lerobot/configs/robot/koch.yaml" \
+            --repo-id "jainamit/koch1" \
+                --num-episodes 2 \
+                    --fps 5
+```
+
+- Visualize dataset:
+```bash
+python lerobot/scripts/visualize_dataset.py \
+    --repo-id jainamit/koch1 \
+    --episode-index 0
+```
+
+- Replay this test episode:
+```bash
+python lerobot/scripts/control_robot.py replay \
+    --fps 5 \
+    --repo-id jainamit/koch1 \
+    --episode 0
+```
+
+
+
+
+
 - Unlimited teleoperation at a limited frequency of 30 Hz, to simulate data recording frequency:
 ```bash
 python lerobot/scripts/control_robot.py teleoperate \
