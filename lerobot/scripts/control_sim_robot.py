@@ -9,19 +9,18 @@ Examples of usage:
 - Unlimited teleoperation at a limited frequency of 30 Hz, to simulate data recording frequency.
   You can modify this value depending on how fast your simulation can run:
 ```bash
-python lerobot/scripts/control_robot.py teleoperate \
-    --fps 30 \
-    --robot-path lerobot/configs/robot/your_robot_config.yaml \
-    --sim-config lerobot/configs/env/your_sim_config.yaml
+python lerobot/scripts/control_sim_robot.py teleoperate \
+    --robot-path lerobot/configs/robot/koch.yaml \
+    --sim-config lerobot/configs/env/koch_real.yaml
 ```
 
 - Record one episode in order to test replay:
 ```bash
 python lerobot/scripts/control_sim_robot.py record \
-    --robot-path lerobot/configs/robot/your_robot_config.yaml \
-    --sim-config lerobot/configs/env/your_sim_config.yaml \
+    --robot-path lerobot/configs/robot/koch.yaml \
+    --sim-config lerobot/configs/env/koch_real.yaml \
     --fps 30 \
-    --repo-id $USER/robot_sim_test \
+    --repo-id jainamit/koch1 \
     --num-episodes 1 \
     --run-compute-stats 0
 ```
